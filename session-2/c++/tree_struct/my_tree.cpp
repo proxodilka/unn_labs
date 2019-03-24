@@ -1,7 +1,7 @@
 #include "my_tree.h"
 
 bool memory_error(){
-	cout << "’ьюстон, у нас проблеммы: MEMORY ERROR\n";
+	cout << "Houston we have a problem: MEMORY ERROR\n";
 	exit(-100);
 }
 
