@@ -1,9 +1,10 @@
-﻿#include <iostream>
+#include <iostream>
 #include <string>
 #include <stdlib.h>
 #include <time.h>
 #include <vector>
 #include <fstream>
+#include <limits>
 #include <windows.h>
 #include "my_queue.h"
 #define DEBUG 0
@@ -36,8 +37,8 @@ int main()
 	init();
 	//=====================================================intro_menu====================================================================================//
 	while (1) {
-		cin.clear();
 		system("CLS");
+		cin.clear();
 		int answer = menu(intro_menu, "Надо заполнить очередь, как это сделать?");
 		if (answer == -1) {
 			exit(0);
@@ -49,6 +50,8 @@ int main()
 		}
 		else if (answer == 2) {
 			cout << "Вводите здесь, когда закончите нажмите CTRL+Z\n";
+			cin.clear();
+			cin.ignore();
 			fill_queue(q, cin);
 		}
 		//================================================================menu_for_many_queues==============================================================//
@@ -97,8 +100,8 @@ int main()
 			}
 			//=============================================================main_menu========================================================================//
 			while (1) {
-				cin.clear();
 				system("CLS");
+				cin.clear();
 				int answer = menu(main_menu);
 				if (answer == -1) {
 					queue_clear(q);
@@ -112,7 +115,9 @@ int main()
 				else if (answer == 2) {
 					cout << "Кого будем добавлять?\n";
 					string string_to_add;
-					cin >> string_to_add;
+					cin.clear();
+					cin.ignore();
+					getline(cin, string_to_add);
 					queue_push(q, string_to_add);
 					cout << "Готово!\n";
 				}
@@ -181,10 +186,8 @@ void init() {
 
 void fill_queue(queue *q, istream &from) {
 	string current_string;
-	while (1) {
-		from >> current_string;
-		if (from.eof())
-			break;
+	from.clear();
+	while (getline(from, current_string)) {
 		queue_push(q, current_string);
 	}
 	if (DEBUG) cout << "queue has been filled\n";
