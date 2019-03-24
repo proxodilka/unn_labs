@@ -8,7 +8,7 @@
 #include <locale>
 #include <windows.h>
 #include "my_tree.h"
-#define DEBUG 1
+#define DEBUG 0
 
 vector<char> restricted_symb = { ',','-','—','!','?','.','"','\'','(',')', ' ', '\n', '\t' };
 vector<string> intro_menu = { "Ввести текст файла", "Ввести текст вручную", "Назад" },
@@ -40,6 +40,7 @@ int main()
 	init();
 	//==========================================intro_menu===================================================//
 	while (1) {
+		system("CLS);
 		cin.clear();
 		int answer = menu(intro_menu);
 		if (answer == -1) {
@@ -56,6 +57,7 @@ int main()
 		}
 		//=============================================main_menu================================================//
 		while (1) {
+			system("CLS);
 			cin.clear();
 			int answer = menu(main_menu);
 			if (answer == -1) {
