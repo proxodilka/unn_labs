@@ -40,7 +40,7 @@ int main()
 	init();
 	//==========================================intro_menu===================================================//
 	while (1) {
-		system("CLS);
+		system("CLS");
 		cin.clear();
 		int answer = menu(intro_menu);
 		if (answer == -1) {
