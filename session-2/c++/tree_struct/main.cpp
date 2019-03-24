@@ -57,7 +57,7 @@ int main()
 		}
 		//=============================================main_menu================================================//
 		while (1) {
-			system("CLS);
+			system("CLS");
 			cin.clear();
 			int answer = menu(main_menu);
 			if (answer == -1) {
