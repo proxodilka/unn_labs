@@ -72,7 +72,7 @@ int main()
 				}
 				else if (answer == 2) {
 					queue_clear(q);
-					queue_cpy(q_first, q);
+					queue_cpy(q_second, q);
 					cout << "Выбранна вторая очередь\n";
 				}
 				else if (answer == 3) {
